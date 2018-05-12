@@ -1,0 +1,42 @@
+{% extends "main.html" %}
+{% block content %}
+    <div class = 'display-catalog'>
+        <div class= 'scrolling-sidebar'>
+                {% for c in catalogs %}
+                    <a href = "{{url_for('showItems', catalog_id = c.id)}}">
+                        <div >
+                            <h3>{{c.catalog_name}}</h3>
+                        </div>
+                    </a>
+                {% endfor %}
+        </div>
+        <div class= 'content'>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li> <strong> {{ message }} </strong> </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+			<div>
+				<h1>{{ catalog.catalog_name }}
+					<!--<figure class="creator">
+						<img src="{{ url_for('static', filename='blank_user.gif') }}">
+						<figcaption>Menu creator's name goes here</figcaption>
+					</figure>-->
+				</h1>
+			</div>
+			{% if item !=[] %}
+				<div >
+					{% for i in items %}
+						<a href = "{{url_for('showDescription',catalog_id=i.catalog_id,item_id=i.id)}}">
+							<h3>{{i.item_name}}</h3>
+						</a>
+					{% endfor %}
+				</div>
+			{% endif %}
+        </div>
+    </div>
+{% endblock %}

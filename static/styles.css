@@ -1,0 +1,127 @@
+body {
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif ;
+    display:block ;
+    overflow-x:hidden ;
+}
+
+/* Style rules for the header section */
+
+header {
+    height: 10%;
+    width: 100%;
+    background-color:#2d3c49;
+    top:0 ;
+    display: flex ;
+    align-items: center ;
+    justify-content: space-between ;
+    border-bottom: 0.75mm solid #7d97ad ;
+}
+
+.name h1 {
+    color:#fff;
+    padding: 5px;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif ;
+    font-size: 4.0vmin ;
+    font-weight:lighter ;
+    text-align:left ;
+}
+
+.btn-name {
+    padding: 5px 5px 5px 5px;
+}
+
+.btn {
+	padding: 5px 5px 5px 5px;
+	margin: 0;
+	border-color: #7d97ad;
+	border-width: 2px;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif ;
+    color: #2d3c49;
+    font-size: 2.5vmin ;
+    font-weight:lighter ;
+    text-align: center ;
+}
+
+.btn:hover {
+	border-color: #7d97ad;
+}
+
+.glyphicon {
+	margin-right: 10px;
+}
+/* style rules for main section */
+
+.display-catalog {
+    display: table ;
+    width: 100%;
+    height: 100%;
+}
+
+.scrolling-sidebar {
+    display: table-cell;
+    width: 30%;
+    vertical-align: top;
+    background-color:#2d3c49;
+    overflow:scroll;
+}
+
+.scrolling-sidebar h3 {
+    color:#fff;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif ;
+    font-size: 3.0vmin ;
+    font-weight:lighter ;
+    text-align:left ;
+    padding: 5px;
+}
+
+.content {
+    display: table-cell;
+    width: 80%;
+    vertical-align: top;
+    text-align: center;
+    background-color:#d0cbcb;
+    overflow:scroll;
+}
+
+.content h1 {
+    color:#2d3c49;
+}
+
+.content h3 {
+    color:#2d3c49;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif ;
+    font-size: 3.0vmin ;
+    font-weight:lighter ;
+    text-align:center ;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+
+.form-content {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.form-content h1 {
+    color:#2d3c49;
+}
+/* style rules for footer section */
+
+.footer {
+    background-color: #2d3c49 ;
+    height: 10%;
+    border-top: 0.75mm solid #7d97ad ;
+}
+
+.footer p {
+    font-weight: bold ;
+    color:#fff;
+    font-size: 2.0vmin ;
+}

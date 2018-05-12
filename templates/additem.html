@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+{% block content %}
+        <div class= 'form-content'>
+			<div>
+				<h1>Add New Item</h1>
+			</div>
+			<div>
+			    <form action="{{ url_for('addItem',catalog_id = catalog_id)}}" method="post">
+			        <div>
+			            <label for="name">Item Name:</label>
+			            <input type="text" maxlength="100" name="name" placeholder="Item Name">
+			        </div>
+			        <div>
+			            <label for='description'>Description:</label>
+			            <textarea maxlength="1000" rows="5" name="description" placeholder="Description of the item"></textarea>
+			        </div>
+			        <div>
+						<button  type="submit" type="submit">
+			                <span  aria-hidden="true"></span>Save
+			            </button>
+						<a href="{{url_for('showItems', catalog_id = catalog_id)}}">
+							<button>
+								<span aria-hidden="true"></span>Cancel
+							</button>
+						</a>
+					</div>
+			    </form>
+			</div>
+        </div>
+{% endblock %}

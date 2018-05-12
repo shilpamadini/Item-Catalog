@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+{% block content %}
+        <div class= 'form-content'>
+			<div>
+				<h1>Delete {{item.item_name}}?</h1>
+			</div>
+			<div>
+			    <form action="{{ url_for('deleteItem',catalog_id = item.catalog_id, item_id= item.id)}}" method="post">
+			        <div>
+			            <button type="submit" type="submit">
+			                <span aria-hidden="true"></span>Delete
+			            </button>
+						<a href="{{url_for('showItems', catalog_id = item.catalog_id)}}">
+						   <button>
+							   <span aria-hidden="true"></span>Cancel
+						   </button>
+					   </a>
+			        </div>
+			    </form>
+			</div>
+        </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title> Item Catalog</title>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<!-- Header section-->
+		<header class="header">
+				<div class="name">
+						<a href = "{{url_for('showCatalog')}}">
+							<h1>Book Categories</h1>
+					 	</a>
+				</div>
+				{%if 'username' not in session %}
+					<div class="btn-name">
+				     		<a href="{{url_for('showLogin')}}">
+								<button class="btn">
+		  					  		<span class="glyphicon glyphicon-glass" aria-hidden="true"></span>Login
+		  				  		</button>
+				     		</a>
+					</div>
+				{% else %}
+					<div class="btn-name">
+						<a href="{{url_for('disconnect')}}">
+							<button class="btn">
+								<span class="glyphicon glyphicon-glass" aria-hidden="true"></span>Logout
+							</button>
+						</a>
+					</div>
+				{% endif %}
+		</header>
+
+		<!-- Main Section-->
+		<main>
+				{% block content %}
+				{% endblock %}
+		</main>
+
+		<!--Footer section -->
+		<footer class="footer">
+			<p>&copy; shilpamadini</p><!-- adding a copy right to the footer -->
+		</footer>
+	</body>
+</html>
