@@ -129,7 +129,7 @@ def gconnect():
     output += login_session['picture']
     output += ' " style = "width: 300px; height: 300px;border-radius: 150px;\
 -webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
-    flash("you are now logged in as %s" % login_session['email'])
+    flash("you are now logged in as %s" % login_session['username'])
     return output
 
 # User Helper Functions
@@ -228,8 +228,8 @@ def showDescription(catalog_id, item_id):
     catalogs = session.query(Catalog).all()
     catalog = session.query(Catalog).filter_by(id=catalog_id).one()
     item = session.query(CatalogItem).filter_by(id=item_id).all()
-    creator = getUserInfo(catalog.user_id)
-    if 'username' not in login_session or creator.id != login_session['user_id']:
+    creator = session.query(CatalogItem).filter_by(id=item_id).one()
+    if 'username' not in login_session or creator.user_id != login_session['user_id']:
         return render_template('publicdescription.html', catalog=catalog,
             item=item, catalogs=catalogs)
     else:
@@ -245,13 +245,16 @@ def addItem(catalog_id):
         return redirect('/login')
     catalog = session.query(Catalog).filter_by(id=catalog_id).one()
     if request.method == 'POST':
-        addItem = CatalogItem(item_name=request.form['name'],
-                description=request.form['description'], catalog_id=catalog_id,
-                user_id=catalog.user_id)
-        session.add(addItem)
-        session.commit()
-        flash('New %s Item Successfully Added' % (addItem.item_name))
-        return redirect(url_for('showItems', catalog_id=catalog_id))
+        if request.form['name'] == '':
+            return redirect(url_for('showItems', catalog_id=catalog_id))
+        else:
+            addItem = CatalogItem(item_name=request.form['name'],
+                    description=request.form['description'], catalog_id=catalog_id,
+                    user_id=login_session['user_id'])
+            session.add(addItem)
+            session.commit()
+            flash('New %s Item Successfully Added' % (addItem.item_name))
+            return redirect(url_for('showItems', catalog_id=catalog_id))
     else:
         return render_template('additem.html', catalog_id=catalog_id)
 
@@ -264,7 +267,7 @@ def editItem(catalog_id, item_id):
         return redirect('/login')
     catalog = session.query(Catalog).filter_by(id=catalog_id).one()
     editItem = session.query(CatalogItem).filter_by(id=item_id).one()
-    if login_session['user_id'] != catalog.user_id:
+    if login_session['user_id'] != editItem.user_id:
         return "<script>function myFunction() {alert('You are not authorized\
 to edit this item.');}</script><body onload='myFunction()''>"
 
@@ -290,7 +293,7 @@ def deleteItem(catalog_id, item_id):
         return redirect('/login')
     catalog = session.query(Catalog).filter_by(id=catalog_id).one()
     deleteItem = session.query(CatalogItem).filter_by(id=item_id).one()
-    if login_session['user_id'] != catalog.user_id:
+    if login_session['user_id'] != deleteItem.user_id:
         return "<script>function myFunction() {alert('You are not authorized\
 to delete this item.');}</script><body onload='myFunction()''>"
 

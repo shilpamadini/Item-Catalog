@@ -7,7 +7,7 @@
 			<div>
 			    <form action="{{ url_for('deleteItem',catalog_id = item.catalog_id, item_id= item.id)}}" method="post">
 			        <div>
-			            <button type="submit" type="submit">
+			            <button type="submit">
 			                <span aria-hidden="true"></span>Delete
 			            </button>
 						<a href="{{url_for('showItems', catalog_id = item.catalog_id)}}">
