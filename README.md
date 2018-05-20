@@ -57,10 +57,10 @@ This project can be run on a Linux-based virtual machine that comes pre-installe
 
 ## Functionality
 
-    1. Connecting http://localhost:8000 will open the item catalog application.
-    2. Website displays book categories and the latest items added to the database.
-    3. When a user not logged in all catalogs and their corresponding items are displayed. Add item and edit/delete item options are not available.
-    3. A login button enables users to login to the database. Authorization is verified using Google Plus sign-in.
-    4. All the new users are automatically logged into the database.
-    5. Once a user is logged-in add item privileges are provided.
-    6. User is provided edit and delete privileges only to the items created by the user.
+1. Connecting http://localhost:8000 will open the item catalog application.
+2. Website displays book categories and the latest items added to the database.
+3. When a user not logged in all catalogs and their corresponding items are displayed. Add item and edit/delete item options are not available.
+4. A login button enables users to login to the database. Authorization is verified using Google Plus sign-in.
+5. All the new users are automatically logged into the database.
+6. Once a user is logged-in add item privileges are provided.
+7. User is provided edit and delete privileges only to the items created by the user.
