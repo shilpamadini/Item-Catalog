@@ -56,6 +56,7 @@ This project can be run on a Linux-based virtual machine that comes pre-installe
         * ```http://localhost:8000```
 
 ## Functionality
+
     1. Connecting http://localhost:8000 will open the item catalog application.
     2. Website displays book categories and the latest items added to the database.
     3. When a user not logged in all catalogs and their corresponding items are displayed. Add item and edit/delete item options are not available.
