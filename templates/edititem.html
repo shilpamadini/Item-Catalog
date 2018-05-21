@@ -9,13 +9,17 @@
 			        <div>
 			            <label for="name">Item Name:</label>
 			            <input type="text" maxlength="100" class="form-control" name="name" value="{{item.item_name}}">
+					</div>
+					<div>
 			            <label for='description'>Description:</label>
 			            <textarea class="form-control" maxlength="1000" rows="5" name="description">{{item.description}}</textarea>
+					</div>
+					<div>
 			            <button type="submit">
 			                <span aria-hidden="true"></span>Save
 			            </button>
 						<a  href="{{url_for('showItems', catalog_id = item.catalog_id)}}">
-			                <button>
+			                <button type="button">
 			                    <span aria-hidden="true"></span>Cancel
 			                </button>
 			            </a>
